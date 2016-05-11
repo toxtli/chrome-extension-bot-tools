@@ -29,9 +29,19 @@ function toxLinkedinScrollAdd(times) {
 }
 
 function toxLinkedinAdd() {
-	$('.bt-request-buffed').click();
+	toxClickOn('.bt-request-buffed');
+}
+
+function toxClickOn(selector) {
+	$(selector).click();
 }
 
 function toxCountSelector(selector) {
 	alert( document.querySelectorAll(selector).length );
+}
+
+function toxFacebookInactiveUsers() {
+	$('div.fsl.fwb.fcb a[href="#"]').each(function() {
+		console.log($(this).text());
+	});
 }
