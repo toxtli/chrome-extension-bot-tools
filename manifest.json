@@ -1,0 +1,33 @@
+{
+  "name": "Chrome bot",
+  "description": "Navigate inside pages.",
+  "version": "1.0",
+  "icons": {
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": { 
+    "page": "background.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["chrome-side.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "img/icon-19-enabled.png",
+    "default_title": "Bot Disabled"
+  },
+  "web_accessible_resources": ["jquery.js", "page-side.js"],
+  "manifest_version": 2
+}
