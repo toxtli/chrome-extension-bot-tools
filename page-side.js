@@ -44,9 +44,16 @@ function toxCountSelector(selector) {
 }
 
 function toxFacebookInactiveUsers() {
+	toxData = [];
 	$('div.fsl.fwb.fcb a[href="#"]').each(function() {
-		console.log($(this).text());
+		var name = $(this).text();
+		console.log(name);
+		toxData.push(name);
 	});
+}
+
+function toxPrintResult() {
+	console.log(JSON.stringify(toxData));
 }
 
 function toxFacebookGetIds() {
