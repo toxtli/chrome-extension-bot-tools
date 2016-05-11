@@ -1,3 +1,4 @@
+var toxData;
 alert('ENABLED: ' + window.location.href);
 console.log('Tox bot tools loaded correctly for ' + window.location.href);
 
@@ -12,6 +13,7 @@ function toxScrollDown(times) {
 		cont++;
 	};
 	var intervalId = setInterval(doSomething, interval);
+	console.log(intervalId);
 }
 
 function toxLinkedinScrollAdd(times) {
@@ -26,6 +28,7 @@ function toxLinkedinScrollAdd(times) {
 		cont++;
 	};
 	var intervalId = setInterval(doSomething, interval);
+	console.log(intervalId);
 }
 
 function toxLinkedinAdd() {
@@ -43,5 +46,17 @@ function toxCountSelector(selector) {
 function toxFacebookInactiveUsers() {
 	$('div.fsl.fwb.fcb a[href="#"]').each(function() {
 		console.log($(this).text());
+	});
+}
+
+function toxFacebookGetIds() {
+	toxData = [];
+	$('div.fsl.fwb.fcb > a').each(function(){
+		var dataFb = $(this).data('gt');
+		if (dataFb) {
+			var fbid = dataFb.engagement.eng_tid;
+			toxData.push(fbid);
+			console.log(fbid);
+		}
 	});
 }
